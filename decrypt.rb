@@ -60,4 +60,5 @@ def decode(code_seq)
   decoded_seq
 end
 
-puts(decode('-- -.--   -. .- -- .'))
+puts(decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...'))
+# A BOX FULL OF RUBIES
