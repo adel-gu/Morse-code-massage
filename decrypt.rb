@@ -28,37 +28,41 @@ MORSE_CODE = {
   '--..' => 'Z'
 }.freeze
 
-def get_char(code)
+# Decode a single charachter
+def decode_char(char)
   # get the letter from morse code hash
-  MORSE_CODE[code]
+  MORSE_CODE[char]
 end
 
-# String => String
-# Convert a code char to a latter.
-def decode(code_seq)
-  # split code_seq to an array on each tow spaces long
-  code_seq_arr = code_seq.split('  ')
+# Decode a word
+def decode_word(word)
+  # split word to an array split by space
+  word_arr = word.split(' ')
+  decoded_word = ""
 
-  # Hold decoded charachters
-  decoded_seq = ''
-
-  # iterate throught each element in the code_seq_arr
-  code_seq_arr.each do |code|
-    # split each element to an array on each one space long
-    sub_code_seq_arr = code.split
-
-    # iterate throught each element in the sub_code_seq_arr and decode each element.
-    sub_code_seq_arr.each do |c|
-      decoded_seq += get_char(c)
-    end
-
-    # when the loop ends this means creating a space between words.
-    decoded_seq += ' '
+  # decode each charachter inside word
+  word_arr.each do |char|
+    decoded_word += decode_char(char)
   end
 
-  # return the result
-  decoded_seq
+  # return result
+  decoded_word
 end
 
-puts(decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...'))
+# Decode a sentence
+def decode(sentence)
+  # split sentence to an array on each tow spaces long
+  sentence_arr = sentence.split('  ')
+  decoded_sentence = ""
+
+  # Decode each word inside sentence_arr
+  sentence_arr.each do |word|
+    decoded_sentence += decode_word(word)
+    decoded_sentence += " "
+  end
+  # Return resut
+  decoded_sentence.strip
+end
+
+p (decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...'))
 # A BOX FULL OF RUBIES
