@@ -37,8 +37,8 @@ end
 # Decode a word
 def decode_word(word)
   # split word to an array split by space
-  word_arr = word.split(' ')
-  decoded_word = ""
+  word_arr = word.split
+  decoded_word = ''
 
   # decode each charachter inside word
   word_arr.each do |char|
@@ -53,16 +53,16 @@ end
 def decode(sentence)
   # split sentence to an array on each tow spaces long
   sentence_arr = sentence.split('  ')
-  decoded_sentence = ""
+  decoded_sentence = ''
 
   # Decode each word inside sentence_arr
   sentence_arr.each do |word|
     decoded_sentence += decode_word(word)
-    decoded_sentence += " "
+    decoded_sentence += ' '
   end
   # Return resut
   decoded_sentence.strip
 end
 
-p (decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...'))
+p(decode('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...'))
 # A BOX FULL OF RUBIES
